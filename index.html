@@ -1,254 +1,290 @@
+<!DOCTYPE HTML>
+<!--
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Astral by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+    /* Efeito para o botão WhatsApp flutuante */
+    .whatsapp-float {
+        position:fixed;
+        width:70px;
+        height:70px;
+        bottom:40px;
+        right:70px;
+        background: linear-gradient(135deg, #FF4CFF 60%, #B200B2 100%);
+        color:#FFF;
+        border-radius:50%;
+        text-align:center;
+        font-size:36px;
+        box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888;
+        z-index:1000;
+        animation: pulse 1.5s infinite;
+        transition: transform 0.2s, background 0.3s;
+    }
+    .whatsapp-float:hover {
+        background: linear-gradient(135deg, #25d366 60%, #128c7e 100%);
+        transform: scale(1.12) rotate(-3deg);
+        box-shadow: 0 0 28px 8px #25d366b0, 0 2px 12px #888;
+    }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888; }
+        50% { box-shadow: 0 0 32px 12px #FF4CFFb0, 0 2px 12px #888; }
+        100% { box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888; }
+    }
+    
+    /* Estilos para a imagem flutuante - CENTRALIZADA */
+    .floating-image-container {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        cursor: move;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .floating-image-container:hover {
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+    
+    .floating-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10001;
+        transition: background-color 0.3s;
+    }
+    
+    .close-button:hover {
+        background-color: rgba(255, 0, 0, 0.8);
+    }
+    
+    .drag-handle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: move;
+        z-index: 10000;
+        border-radius: 10px 10px 0 0;
+    }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="description" content="Viva Verde - O terreno dos seus sonhos! Invista em Jundiai" />
-	<meta name="keywords" content="Jundiai, loteamento, terreno a venda, TERRA CAXAMBU, terrenos em jundiai terreno barato, loteamento jundiai, caxambu, Família Brunholi Restaurante, Cervejaria Marcos Brunholi, Adega E Restaurante Beraldo DI Cale, Recanto Marquezin, Sítio Fontebasso, Kiosque da Roseira, chacaras caxambu jundiai,Butequim du Marcelo, Restaurante Piatti Belli, kifesta, Locaki, Espaço Santa Filomena, O Italianão Bar e Restaurante, Panificadora Vera Cruz caxambú jundiai sp, Don Martê Restaurante, Fazenda Nossa Senhora Da Conceicao, Danilo Picanha, Chacara " />
-	<meta name="author" content="Locaki" />
-    <title>Terrenos a venda  - Jundiaí</title>
-  <!--favicon-img--> 
-   <link rel="icon" type="image/png" href="images/favicon.png">
-   <!--favicon-img-->
-   <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-</head>
-<body>
-    <!--contains all the div-->
-    <div id="all">
-    <!--mouse  follower-->
-        <div class="cursor"></div>
-    <!--mouse  follower-->
-    <!--loader-->
-    <!--loader-end-->
-    <!--link-screen-->
-        <div id="breaker">
-        </div>
-        <div id="breaker-two">
-        </div>
-    <!--link-screen-->
-        <!--Main-Section-->
-        <!--Navigator-fullscreen-->
-        <!--Navigator-fullscreen-->
-        <div id="navigation-content">
-            <div class="logo">
-                <img src="images/terrasjundiai.png" alt="logo">
-            </div>
-            <div class="navigation-close">
-                <span class="close-first"></span>
-                <span class="close-second"></span>
-            </div>
-             <div class="navigation-links">
-                <a href="https://terrenosavendajundiai.com.br/vivaverde.html" data-text="CONHECER" id="contact-link" >Terrenos<br>
-a venda</a>
-            </div>
-        </div>
-        <!--Navigator-Fullscreen END-->
-          <!--Home Page-->
-        <!--Menubar-->
-        <div id="navigation-bar">
-          <a href="http://terrenosavendajundiai.com.br">
-			  <img src="images/terrasjundiai.png" alt="logo" ></a>
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
-            </div>
-        </div>
-        <!--Menubar End-->
-         
-          <!--Header-->
-      <div>
-            <div id="particles"></div>
-              <!--Social Media Links-->
-     
-            <!--Social Media Links end-->
-      <div>
-        <div class="blog-header"> Terrenos a Venda <span class="color"> em Jundiaí</span>
-            <span class ="header-caption">Lista de<span class="color"> terrenos</span></span></div>
-        <div class="blog-content">
-                 <div class="blogs"> <a href="04roma6B.html">
-                   <div class="img">
-                     <img src="images/4 Jd Roma 01 rua nevio Quadra F 6B/02.png" alt="blog-one">
-                     <div class="blog-date"><span>Disponível</span></div>
-                   </div>
-                 <div class="blog-text">
-                         <h3>COD04-JD Roma 321,38 mº</h3>
-                    <p align="left">Descrição do Lote: <span class="color"> Cod 04</span><br>
-						   Tamanho: <strong class="color">321,38 mº</strong><br>
-						  Endereço: <strong class="color">Rua Névio Salvia</strong><br>
-               			     Perto: <strong class="color">do Bairro da Colonia</strong><br>
-               	  Mais informações: <strong class="color">...clique aqui</strong><br></p>
-                 </div>
-                 </a>
-                 </div>  
-                <div class="blogs">
-                    <a href="05roma6A.html">
-                    <div class="img">
-                        <img src="images/5 Jd Roma 01 rua Prof Quadra F 6A/Frente.png" alt="blog-three">
-                        <div class="blog-date"><span>Disponível</span></div>
-                    </div>
-                     <div class="blog-text">
-                         <h3>COD05-JD Roma 233,62 mº</h3>
-                         <p align="left">Descrição do Lote: <span class="color"> Cod 05</span><br>
-						   Tamanho: <strong class="color">233,62 mº</strong><br>
-						  Endereço: <strong class="color">Rua Prof Benedita S.G</strong><br>
-               			     Perto: <strong class="color">do Bairro da Colonia</strong><br>
-               	  Mais informações: <strong class="color">...clique aqui</strong><br></p>
-                    </div></a>
-                </div>
-               
-                  
-                 
-                
-                  
-                
-			
-                
-          <div class="blog-header"> Terrenos a Venda <span class="color">em Várzea Paulista</span> <span class="header-caption">Lista de<span class="color"> terrenos</span></span></div>
-                 
-                                             
-                           
-                 <div class="blogs">
-                    <a href="19vzapoul.html">
-                    <div class="img">
-                        <img src="images/19 Varzea serra dos cristais Paulinho/frente.png" alt="blog-two">
-                        <div class="blog-date">INDisponível</div>                      
-                    </div>
-                     <div class="blog-text">
-                        <h3>COD19 Jd Bahia 226,00mº</h3>
-                        <p align="left">Descrição do Lote: <span class="color"> Cod 19</span><br>
-						   Tamanho: <strong class="color">226,80mº</strong><br>
-						  Endereço: <strong class="color">JD Bahia</strong><br>
-               			     Perto: <strong class="color">do MC da Varzea</strong><br>
-               	  Mais informações: <strong class="color">...clique aqui</strong><br></p>
-                    </div></a>
-                </div>                      
-                                                      
-        </div>               
-        <!--copyright-section-->
-        <!--header image-->            
-        <!--header image end-->
-        <!--blog-->      
-        <!--blog end-->
-        <!--Header End-->
-        <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <!--about content-->
-        
-        <!--services start-->
-            <!--services header-->            
-            <!--services header end-->
-            <!--services content-->            
-           
-            <!--services content end-->
-            
-            <div id="portfolio-content"> </div>
-            <!--services end-->
-               
-    <!--copyright-section-->
-</div>
-        <!--about end-->
-        <!--portfolio-->
-      <div id="portfolio">
-            <div class="portfolio-header"> <span class="color"> My </span> Portfolio
-            <span class ="header-caption"> Some Of My <span class="color"> Works</span></span></div>
-             <div id="portfolio-content">
-                 <div class="portfolio portfolio-first">
-                     <div class="portfolio-image">
-                        <img src="images/portfolio-first.jpg" alt="portfolio-first">
-                     </div>
-                     <div class="portfolio-text">
-                         <h2>App Idea</h2>
-                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate 
-                             expedita eius dignissimos. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                         <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                     </div>
-                 </div>
-                 <div class="portfolio portfolio-second">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-second.jpg" alt="portfolio-second">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Web Designing</h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id cumque placeat minima ad laudantium suscipit
-                             voluptatem ducimus. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-             
-                <div class="portfolio portfolio-third">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-third.jpg" alt="portfolio-third">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>UI Designing</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate expedita eius dignissimos
-                            .. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                <div class="portfolio portfolio-fourth">
-                    <div class=" portfolio-image">
-                        <img src="images/portfolio-fourth.jpg" alt="portfolio-fourth">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Wow Graphics</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate
-                             expedita eius dignissimos. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                 </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Terrenos
-                </div>
-               </div>
-       <!--copyright-section-->
-             </div>
-        <!--portfolio end-->
-        <!--blog-->
-      <div id="blog">
-<!--copyright-section-->
-        </div>
-        <!--blog end-->
-        <!--contact-->
-     <div id="contact">
-         
-        
-            <!--Contact form-->
-                     
-                <!--services content-->
+    /* Responsividade para telas menores */
+    @media (max-width: 768px) {
+        .floating-image-container {
+            width: 90vw;
+            height: 90vw;
+            max-width: 400px;
+            max-height: 400px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .floating-image-container {
+            width: 95vw;
+            height: 95vw;
+            max-width: 350px;
+            max-height: 350px;
+        }
+    }
+    
+    /* Estilo para a informação de retirada */
+    .retirada-info {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-radius: 5px;
+        padding: 15px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#" class="icon solid fa-home"><span>Inicio</span></a>
+						<a href="#work" class="icon solid fa-folder"><span>Produtos</span></a>
+						<a href="#contact" class="icon solid fa-envelope"><span>Contato</span></a>
+						<a href="https://www.instagram.com/marciadastoalhas" class="icon brands fa-instagram"><span>Instagram</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Me -->
+							<article id="home" class="panel intro">
+								<header>
+                                	<img src="images/logo_marcial.fw.png" alt="" width="338" height="110" />
+									<!-- Me <h1>Marcia das Toalhas</h1>-->
+								  <p>Locação de materiais para festas Santos-SP</p>
+								</header>
+								<a href="#work" class="jumplink pic">
+									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
+									<img src="images/marcia das toalhas modelos  (1).jpeg" alt="" />
+								</a>
+							</article>
+
+						<!-- Work -->
+							<article id="work" class="panel">
+								<header>
+									<h2>Produtos</h2>
+								</header>
+								<p>
+									Transformamos simples festas em momentos únicos desde 1988, a primeira locadora especializada em toalhas na baixada Santista, Aluguel de toalhas,taças ,guardanapos e Sousplat e muito mais... Marcia das Toalhas Fazendo a Festa!.
+								</p>
+								<section>
+									<div class="row">
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic03.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic04.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic05.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic06.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic07.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic08.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic09.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic10.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic11.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic12.jpg" alt=""></a>
+										</div>
+									</div>
+								</section>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact" class="panel">
+								<header>
+									<h2>Entre em Contato</h2>
+								</header>
+                                <div id="footer">                    
+                           			 <ul class="copyright">
+                                		<li>
+                                            <h2>Email:</h2><br>
+                                            <a href="mailto:Lilian_borsen@Hotmail.com">
+                                                <h3>Lilian_borsen@Hotmail.com</h3>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <h2>Telefone</h2><br><a href="https://wa.me/5513974170232?text=Ol%C3%A1%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre"><h3>(13)974170232</h3></a>
+                                        </li>	                        	
+                             			<br><br><br>
+                           			 </ul>	    
+                				</div>
+								<!--<form action="#" method="post">
+									<div>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<input type="text" name="name" placeholder="Nome" />
+											</div>
+											<div class="col-6 col-12-medium">
+												<input type="text" name="email" placeholder="E-mail" />
+											</div>
+											<div class="col-12">
+												<input type="text" name="subject" placeholder="Sobre?" />
+											</div>
+											<div class="col-12">
+												<textarea name="message" placeholder="Como podemos ajudar?" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<input type="submit" value="Enviar Messagem" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>-->
+
+					</div> 
+
+				<!-- Footer -->
+					<div id="footer">
                     
-            <!--Contact information end-->           
-            <!--copyright-section You Can Remove After Downloading-->
-                    <div class="footer">
-                        <div class="footer-text">
-                            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Terrenos a Venda
-                      </div>
-                       </div>
-            <!--copyright-section-->
-            <!--contact end-->
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="js/index.js"></script>
-    <!-- whatsapp flut-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<a href="https://wa.me/5511971537119?text=Olá%20gostaria%20de%20mais%20informações%20sobre%20o%20loteamento%20Viva%20Verde" style="position:fixed;width:60px;height:60px;bottom:40px;right:30px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888;
-		  z-index:1000;" target="_blank">
-		<i style="margin-top:16px" class="fa fa-whatsapp"></i>
-		</a>
-    <!--particles script-->
-    <script>
- particlesJS("particles", {"particles":{"number":{"value":120,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":true,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":true,"speed":0,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":0,"color":"#ffffff","opacity":0.24463576890600452,"width":1.2626362266116362},"move":{"enable":true,"speed":3,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-</script>
-</body>
+						<ul class="copyright">
+                        	<li><a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/catalogo.fw.png" alt="" width="257" height="66" /></a></li>	                        	
+                            <br><br>
+                            <li> <h2> <a href="https://www.google.com/maps/place/R.%20Princesa%20Isabel,%20255%20-%20Vila%20Belmiro%20-%20Santos%20-%20SP%20-%2011075-501%20-%20Brasil">Endereço: R. PRINCESA ISABEL, 255 - VILA BELMIRO - SANTOS - SP - 11075-501</a></h2> </li>
+                             <br><br>
+                             <li>
+                             	<h2> <a href="https://wa.me/5513974170232?text=Ol%C3%A1%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre">Fone: Atendimento (13)974170232</a></h2></li>
+                             <br>	<br>
+							<li>@direitos reservados a </li><li>Design: <a href="https://locaaqui.com.br/home.html">Locaaqui - Sistema Locação</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+    <footer class="page-foot page-foot-default section-35 bg-black novi-background text-center">        
+        <!-- whatsapp flutuante -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <a href="https://wa.me/5513974170232?text=Olá%20eu%20estava%20no%20site%20e%20gostaria%20de%20alugar%20itens%20para%20minha%20festa" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+          <i style="margin-top:18px" class="fa fa-whatsapp"></i>
+        </a>
+      </footer>
 </html>
