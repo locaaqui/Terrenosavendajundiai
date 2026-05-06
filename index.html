@@ -1,324 +1,203 @@
-<!DOCTYPE HTML>
-
-<html>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Y56KPG5TF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locaaqui - Avisa</title>
+    <meta name="description" content="Estamos trabalhando para melhorar nosso atendimento. Novo sistema em breve.">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        gtag('config', 'G-4Y56KPG5TF');
-    </script>
-    <title>Teste sistema Locação</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
-    </noscript>
     <style>
-        /* Efeito para o botão WhatsApp flutuante */
-        .whatsapp-float {
-            position: fixed;
-            width: 70px;
-            height: 70px;
-            bottom: 40px;
-            right: 70px;
-            background: linear-gradient(135deg, #FF4CFF 60%, #B200B2 100%);
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 36px;
-            box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888;
-            z-index: 1000;
-            animation: pulse 1.5s infinite;
-            transition: transform 0.2s, background 0.3s;
+        :root {
+            --primary: #4f46e5;
+            --secondary: #818cf8;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #f472b6;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
         }
 
-        .whatsapp-float:hover {
-            background: linear-gradient(135deg, #25d366 60%, #128c7e 100%);
-            transform: scale(1.12) rotate(-3deg);
-            box-shadow: 0 0 28px 8px #25d366b0, 0 2px 12px #888;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888;
-            }
-
-            50% {
-                box-shadow: 0 0 32px 12px #FF4CFFb0, 0 2px 12px #888;
-            }
-
-            100% {
-                box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888;
-            }
-        }
-
-        /* Estilos para a imagem flutuante - CENTRALIZADA */
-        .floating-image-container {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            cursor: move;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .floating-image-container:hover {
-            transform: translate(-50%, -50%) scale(1.02);
-        }
-
-        .floating-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            border-radius: 50%;
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-main);
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 10001;
-            transition: background-color 0.3s;
+            overflow: hidden;
+            text-align: center;
         }
 
-        .close-button:hover {
-            background-color: rgba(255, 0, 0, 0.8);
-        }
-
-        .drag-handle {
+        /* Animated Background Gradients */
+        .bg-glow {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background-color: rgba(0, 0, 0, 0.5);
-            cursor: move;
-            z-index: 10000;
-            border-radius: 10px 10px 0 0;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(80px);
+            animation: float 20s infinite alternate ease-in-out;
         }
 
-        /* Responsividade para telas menores */
-        @media (max-width: 768px) {
-            .floating-image-container {
-                width: 90vw;
-                height: 90vw;
-                max-width: 400px;
-                max-height: 400px;
-            }
+        .glow-1 { top: -10%; left: -10%; }
+        .glow-2 { bottom: -10%; right: -10%; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.1); }
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .illustration-wrapper {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+            animation: subtleBounce 4s infinite ease-in-out;
+        }
+
+        @keyframes subtleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(129, 140, 248, 0.1);
+            border: 1px border solid rgba(129, 140, 248, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px var(--secondary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(129, 140, 248, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(129, 140, 248, 0); }
+        }
+
+        .apology {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        .socials {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
         }
 
         @media (max-width: 480px) {
-            .floating-image-container {
-                width: 95vw;
-                height: 95vw;
-                max-width: 350px;
-                max-height: 350px;
-            }
-        }
-
-        /* Estilo para a informação de retirada */
-        .retirada-info {
-            background-color: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 5px;
-            padding: 15px;
-            text-align: center;
-            margin-top: 20px;
+            h1 { font-size: 1.8rem; }
+            p.subtitle { font-size: 1rem; }
+            .main-image { max-width: 240px; }
         }
     </style>
 </head>
+<body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
 
-<body class="is-preload">
-
-    <!-- Wrapper-->
-    <div id="wrapper">
-
-        <!-- Nav -->
-        <nav id="nav">
-            <a href="#" class="icon solid fa-home"><span>Inicio</span></a>
-            <a href="https://sistema.terrenosavendajundiai.com.br/produtos-disponiveis"
-                class="icon solid fa-folder"><span>Sistema</span></a>
-            <a href="https://produtos.terrenosavendajundiai.com.br/produtos-disponiveis"
-                class="icon solid fa-folder"><span>Produtos</span></a>
-            <a href="#contact" class="icon solid fa-envelope"><span>Contato</span></a>
-            <a href="https://www.instagram.com/locaaqui" class="icon brands fa-instagram"><span>Instagram</span></a>
-        </nav>
-
-        <!-- Main -->
-        <div id="main">
-
-            <!-- Me -->
-            <article id="home" class="panel intro">
-                <header>
-                    <img src="images/logo_teste.fw.png" alt="" width="461" height="147" />
-                    <!-- Me <h1>Marcia das Toalhas</h1>-->
-                    <p>Com o Sistema de locação dos sonhos !</p>
-                </header>
-                <a href="#work" class="jumplink pic">
-                    <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-                    <img src="images/marcia das toalhas modelos  (1).jpeg" alt="" />
-                </a>
-            </article>
-
-            <!-- Work 
-							<article id="work" class="panel">
-								<header>
-									<h2>Produtos</h2>
-								</header>
-								<p>
-									Transformamos simples festas em momentos únicos desde 1988, a primeira locadora especializada em toalhas na baixada Santista, Aluguel de toalhas,taças ,guardanapos e Sousplat e muito mais... Marcia das Toalhas Fazendo a Festa!.
-								</p>
-								<section>
-									<div class="row">
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-										</div>
-									</div>
-								</section>
-							</article>-->
-
-            <!-- Contact -->
-            <article id="contact" class="panel">
-                <header>
-                    <h2>Entre em Contato</h2>
-                </header>
-                <div id="footer">
-                    <ul class="copyright">
-                        <li>
-                            <h2>E-mail:</h2><br>
-                            <a href="mailto:Lilian_borsen@Hotmail.com">
-                                <h3>Fabio@locaki.com.br</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <h2>Telefone</h2><br><a
-                                href="https://wa.me/551971537119?text=Ol%C3%A1%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre">
-                                <h3>(19)97153-7119</h3>
-                            </a>
-                        </li>
-                        <br><br><br>
-                    </ul>
-                </div>
-                <!--<form action="#" method="post">
-									<div>
-										<div class="row">
-											<div class="col-6 col-12-medium">
-												<input type="text" name="name" placeholder="Nome" />
-											</div>
-											<div class="col-6 col-12-medium">
-												<input type="text" name="email" placeholder="E-mail" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="subject" placeholder="Sobre?" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Como podemos ajudar?" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Enviar Messagem" />
-											</div>
-										</div>
-									</div>
-								</form>
-							</article>-->
-
+    <main class="container">
+        <div class="logo">
+            Locaaqui <span>- Avisa</span>
         </div>
 
-        <!-- Footer -->
-        <div id="footer">
-
-            <ul class="copyright">
-
-                <li>
-                    <h2> <a
-                            href="https://www.google.com/maps/place/R.%20Princesa%20Isabel,%20255%20-%20Vila%20Belmiro%20-%20Santos%20-%20SP%20-%2011075-501%20-%20Brasil">Endereço:
-                            Av Comendador Antonio Borim 4600 caxambu junndiai CEP 13218665</a></h2>
-                </li>
-                <br><br>
-                <li>
-                    <h2> <a
-                            href="https://wa.me/551971537119?text=Ol%C3%A1%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre">Fone:
-                            Atendimento 11-971537119</a></h2>
-                </li>
-                <br> <br>
-                <li>@direitos reservados a </li>
-                <li>Design: <a href="https://locaaqui.com.br/home.html">Locaaqui - Sistema Locação</a></li>
-            </ul>
+        <div class="status-badge">
+            <div class="pulse-dot"></div>
+            Sistema em Manutenção
         </div>
 
-    </div>
+        <div class="illustration-wrapper">
+            <img src="maintenance.png" alt="Trabalhando no sistema" class="main-image">
+        </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+        <h1>Estamos trabalhando em nosso novo sistema</h1>
+        
+        <p class="subtitle">Estamos trabalhando para melhorar nosso atendimento e trazer uma experiência incrível para você.</p>
 
+        <div class="apology">
+            Desculpe o transtorno
+        </div>
+    </main>
 </body>
-<footer class="page-foot page-foot-default section-35 bg-black novi-background text-center">
-    <!-- whatsapp flutuante -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://wa.me/5511971537119?text=Olá%20eu%20estava%20no%20site%20e%20gostaria%20de%20de%20saber%20sobre%20o%20sistema"
-        class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
-        <i style="margin-top:18px" class="fa fa-whatsapp"></i>
-    </a>
-</footer>
-
 </html>

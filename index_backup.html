@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Y56KPG5TF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4Y56KPG5TF');
+    </script>
+    <title>Teste sistema Locação</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <style>
+        /* Efeito para o botão WhatsApp flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 70px;
+            background: linear-gradient(135deg, #FF4CFF 60%, #B200B2 100%);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 36px;
+            box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888;
+            z-index: 1000;
+            animation: pulse 1.5s infinite;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background: linear-gradient(135deg, #25d366 60%, #128c7e 100%);
+            transform: scale(1.12) rotate(-3deg);
+            box-shadow: 0 0 28px 8px #25d366b0, 0 2px 12px #888;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888;
+            }
+
+            50% {
+                box-shadow: 0 0 32px 12px #FF4CFFb0, 0 2px 12px #888;
+            }
+
+            100% {
+                box-shadow: 0 0 18px 4px #FF4CFF80, 0 2px 8px #888;
+            }
+        }
+
+        /* Estilos para a imagem flutuante - CENTRALIZADA */
+        .floating-image-container {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            cursor: move;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-image-container:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+        }
+
+        .floating-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            transition: background-color 0.3s;
+        }
+
+        .close-button:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+        }
+
+        .drag-handle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: move;
+            z-index: 10000;
+            border-radius: 10px 10px 0 0;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .floating-image-container {
+                width: 90vw;
+                height: 90vw;
+                max-width: 400px;
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-image-container {
+                width: 95vw;
+                height: 95vw;
+                max-width: 350px;
+                max-height: 350px;
+            }
+        }
+
+        /* Estilo para a informação de retirada */
+        .retirada-info {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper-->
+    <div id="wrapper">
+
+        <!-- Nav -->
+        <nav id="nav">
+            <a href="#" class="icon solid fa-home"><span>Inicio</span></a>
+            <a href="https://sistema.terrenosavendajundiai.com.br/produtos-disponiveis"
+                class="icon solid fa-folder"><span>Sistema</span></a>
+            <a href="https://produtos.terrenosavendajundiai.com.br/produtos-disponiveis"
+                class="icon solid fa-folder"><span>Produtos</span></a>
+            <a href="#contact" class="icon solid fa-envelope"><span>Contato</span></a>
+            <a href="https://www.instagram.com/locaaqui" class="icon brands fa-instagram"><span>Instagram</span></a>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Me -->
+            <article id="home" class="panel intro">
+                <header>
+                    <img src="images/logo_teste.fw.png" alt="" width="461" height="147" />
+                    <!-- Me <h1>Marcia das Toalhas</h1>-->
+                    <p>Com o Sistema de locação dos sonhos !</p>
+                </header>
+                <a href="#work" class="jumplink pic">
+                    <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
+                    <img src="images/marcia das toalhas modelos  (1).jpeg" alt="" />
+                </a>
+            </article>
+
+            <!-- Work 
+							<article id="work" class="panel">
+								<header>
+									<h2>Produtos</h2>
+								</header>
+								<p>
+									Transformamos simples festas em momentos únicos desde 1988, a primeira locadora especializada em toalhas na baixada Santista, Aluguel de toalhas,taças ,guardanapos e Sousplat e muito mais... Marcia das Toalhas Fazendo a Festa!.
+								</p>
+								<section>
+									<div class="row">
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic03.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic04.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic05.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic06.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic07.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic08.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic09.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic10.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic11.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="https://locaaqui.com.br/home.html?cidade=santos" class="image fit"><img src="images/pic12.jpg" alt=""></a>
+										</div>
+									</div>
+								</section>
+							</article>-->
+
+            <!-- Contact -->
+            <article id="contact" class="panel">
+                <header>
+                    <h2>Entre em Contato</h2>
+                </header>
+                <div id="footer">
+                    <ul class="copyright">
+                        <li>
+                            <h2>E-mail:</h2><br>
+                            <a href="mailto:Lilian_borsen@Hotmail.com">
+                                <h3>Fabio@locaki.com.br</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <h2>Telefone</h2><br><a
+                                href="https://wa.me/551971537119?text=Ol%C3%A1%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre">
+                                <h3>(19)97153-7119</h3>
+                            </a>
+                        </li>
+                        <br><br><br>
+                    </ul>
+                </div>
+                <!--<form action="#" method="post">
+									<div>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<input type="text" name="name" placeholder="Nome" />
+											</div>
+											<div class="col-6 col-12-medium">
+												<input type="text" name="email" placeholder="E-mail" />
+											</div>
+											<div class="col-12">
+												<input type="text" name="subject" placeholder="Sobre?" />
+											</div>
+											<div class="col-12">
+												<textarea name="message" placeholder="Como podemos ajudar?" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<input type="submit" value="Enviar Messagem" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>-->
+
+        </div>
+
+        <!-- Footer -->
+        <div id="footer">
+
+            <ul class="copyright">
+
+                <li>
+                    <h2> <a
+                            href="https://www.google.com/maps/place/R.%20Princesa%20Isabel,%20255%20-%20Vila%20Belmiro%20-%20Santos%20-%20SP%20-%2011075-501%20-%20Brasil">Endereço:
+                            Av Comendador Antonio Borim 4600 caxambu junndiai CEP 13218665</a></h2>
+                </li>
+                <br><br>
+                <li>
+                    <h2> <a
+                            href="https://wa.me/551971537119?text=Ol%C3%A1%20estava%20no%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre">Fone:
+                            Atendimento 11-971537119</a></h2>
+                </li>
+                <br> <br>
+                <li>@direitos reservados a </li>
+                <li>Design: <a href="https://locaaqui.com.br/home.html">Locaaqui - Sistema Locação</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+<footer class="page-foot page-foot-default section-35 bg-black novi-background text-center">
+    <!-- whatsapp flutuante -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://wa.me/5511971537119?text=Olá%20eu%20estava%20no%20site%20e%20gostaria%20de%20de%20saber%20sobre%20o%20sistema"
+        class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+        <i style="margin-top:18px" class="fa fa-whatsapp"></i>
+    </a>
+</footer>
+
+</html>
