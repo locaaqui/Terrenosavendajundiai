@@ -5,23 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-1562828751233160">
+    <meta name="theme-color" content="#0f172a">
     <title>Política de Privacidade | Aluguel de Mesas e Cadeiras Jundiaí</title>
     <meta name="description"
         content="Política de privacidade do portal informativo de aluguel de mesas e cadeiras em Jundiaí. Saiba como tratamos dados, cookies e publicidade.">
     <link rel="canonical" href="https://terrenosavendajundiai.com.br/privacidade.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <style>
         :root {
             --primary: #06b6d4;
             --primary-dark: #0891b2;
+            --primary-light: #22d3ee;
+            --secondary: #e6195e;
             --dark: #0f172a;
+            --darker: #080c14;
             --light: #f8fafc;
+            --gray-light: #f1f5f9;
             --gray: #64748b;
             --white: #ffffff;
             --font-title: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
         * {
@@ -30,19 +40,59 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--font-body);
             background-color: var(--light);
             color: #334155;
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
+        ::selection {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* HEADER */
         header {
-            background-color: var(--dark);
-            padding: 18px 5%;
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(15, 23, 42, 0.97);
+            padding: 10px 5%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.7rem;
+            animation: floatChair 3s ease-in-out infinite;
+        }
+
+        @keyframes floatChair {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(-6deg); }
         }
 
         .logo-text {
@@ -56,43 +106,128 @@
             color: var(--primary);
         }
 
-        header a {
+        .header-link {
             color: var(--white);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
+            padding: 9px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
         }
 
-        header a:hover {
-            color: var(--primary);
+        .header-link:hover {
+            background: var(--white);
+            color: var(--dark);
         }
 
+        /* HERO COMPACTO */
+        .page-hero {
+            position: relative;
+            background: linear-gradient(135deg, #0f172a 0%, #0e2a3a 45%, #0891b2 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 70px 20px 60px;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.45;
+            z-index: 0;
+            animation: blobFloat 14s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, #06b6d4, transparent 70%);
+            top: -120px;
+            left: -60px;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #e6195e, transparent 70%);
+            bottom: -120px;
+            right: -40px;
+            animation-delay: -6s;
+        }
+
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(35px, -25px) scale(1.1); }
+            66% { transform: translate(-25px, 18px) scale(0.95); }
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-title);
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out 0.1s forwards;
+        }
+
+        .page-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out 0.25s forwards;
+        }
+
+        /* CARD DE CONTEÚDO */
         .container {
             max-width: 820px;
-            margin: 0 auto;
-            padding: 60px 5%;
+            margin: -40px auto 0;
+            padding: 0 5% 70px;
+            position: relative;
+            z-index: 5;
         }
 
-        h1 {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            color: var(--dark);
-            font-weight: 800;
-            margin-bottom: 10px;
+        .content-card {
+            background: var(--white);
+            border-radius: 22px;
+            padding: 50px 45px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.7s ease-out 0.4s forwards;
         }
 
         .updated {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 35px;
+            display: inline-block;
+            color: var(--primary-dark);
+            background: rgba(6, 182, 212, 0.1);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 30px;
         }
 
         h2 {
             font-family: var(--font-title);
-            font-size: 1.4rem;
-            color: var(--primary-dark);
+            font-size: 1.35rem;
+            color: var(--dark);
             font-weight: 700;
-            margin: 32px 0 12px;
+            margin: 34px 0 12px;
+            padding-left: 14px;
+            border-left: 4px solid var(--primary);
+            line-height: 1.3;
         }
 
         p {
@@ -110,87 +245,181 @@
 
         a {
             color: var(--primary-dark);
+            font-weight: 500;
         }
 
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .intro-text {
+            font-size: 1.08rem;
+            color: #475569;
+        }
+
+        /* FOOTER */
         footer {
             background-color: #080c14;
             color: rgba(255, 255, 255, 0.6);
-            padding: 30px 5%;
+            padding: 35px 5%;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
         }
 
         footer a {
             color: var(--white);
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .content-card { opacity: 1; transform: none; }
+        }
+
+        @media (max-width: 720px) {
+            .page-hero h1 { font-size: 2rem; }
+            .content-card { padding: 34px 24px; }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo-text">Loca<span>Aqui</span></div>
-        <a href="index.html">← Voltar ao início</a>
+    <!-- HEADER -->
+    <header id="mainHeader">
+        <div class="logo-container">
+            <span class="logo-icon">🪑</span>
+            <div style="display:flex;flex-direction:column;line-height:1;">
+                <div class="logo-text" style="line-height:1.1;">Loca<span>Aqui</span></div>
+                <div
+                    style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;color:var(--primary);letter-spacing:0.5px;text-transform:uppercase;text-align:left;">
+                    Indica</div>
+            </div>
+        </div>
+        <a href="index.html" class="header-link">← Início</a>
     </header>
 
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="page-hero-content">
+            <h1>Política de Privacidade</h1>
+            <p>Transparência sobre como tratamos seus dados, cookies e publicidade neste portal.</p>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO -->
     <main class="container">
-        <h1>Política de Privacidade</h1>
-        <p class="updated">Última atualização: 28 de setembro de 2026</p>
+        <div class="content-card">
+            <span class="updated">Última atualização: 28 de setembro de 2026</span>
 
-        <p>Esta Política de Privacidade descreve como o portal <strong>Aluguel de Mesas e Cadeiras Jundiaí</strong>
-            (acessível em terrenosavendajundiai.com.br) coleta, utiliza e protege as informações dos visitantes. Ao
-            navegar neste site, você concorda com as práticas descritas neste documento.</p>
+            <p class="intro-text">Esta Política de Privacidade descreve como o portal <strong>Aluguel de Mesas e
+                    Cadeiras Jundiaí</strong> (acessível em terrenosavendajundiai.com.br) coleta, utiliza e protege as
+                informações dos visitantes. Ao navegar neste site, você concorda com as práticas descritas neste
+                documento.</p>
 
-        <h2>1. Informações que coletamos</h2>
-        <p>Este site é um portal informativo. Não exigimos cadastro nem coletamos dados pessoais identificáveis de forma
-            direta para navegação no conteúdo. Podemos coletar, de forma automática e anônima, dados de navegação como:
-        </p>
-        <ul>
-            <li>Endereço IP e localização aproximada;</li>
-            <li>Tipo de navegador e dispositivo utilizado;</li>
-            <li>Páginas visitadas e tempo de permanência;</li>
-            <li>Termos de busca utilizados dentro do site.</li>
-        </ul>
-        <p>Caso você entre em contato conosco pela página de contato, poderemos receber os dados que você fornecer
-            voluntariamente, como nome e e-mail, usados apenas para responder à sua solicitação.</p>
+            <h2>1. Informações que coletamos</h2>
+            <p>Este site é um portal informativo. Não exigimos cadastro nem coletamos dados pessoais identificáveis de
+                forma direta para navegação no conteúdo. Podemos coletar, de forma automática e anônima, dados de
+                navegação como:</p>
+            <ul>
+                <li>Endereço IP e localização aproximada;</li>
+                <li>Tipo de navegador e dispositivo utilizado;</li>
+                <li>Páginas visitadas e tempo de permanência;</li>
+                <li>Termos de busca utilizados dentro do site.</li>
+            </ul>
+            <p>Caso você entre em contato conosco pela página de contato, poderemos receber os dados que você fornecer
+                voluntariamente, como nome e e-mail, usados apenas para responder à sua solicitação.</p>
 
-        <h2>2. Uso de cookies</h2>
-        <p>Utilizamos cookies para melhorar a experiência de navegação, entender como o site é utilizado e exibir
-            publicidade relevante. Cookies são pequenos arquivos armazenados no seu navegador. Você pode desativá-los a
-            qualquer momento nas configurações do seu navegador, embora isso possa afetar algumas funcionalidades.</p>
+            <h2>2. Uso de cookies</h2>
+            <p>Utilizamos cookies para melhorar a experiência de navegação, entender como o site é utilizado e exibir
+                publicidade relevante. Cookies são pequenos arquivos armazenados no seu navegador. Você pode desativá-los
+                a qualquer momento nas configurações do seu navegador, embora isso possa afetar algumas
+                funcionalidades.</p>
 
-        <h2>3. Publicidade e Google AdSense</h2>
-        <p>Este site pode exibir anúncios fornecidos por terceiros, incluindo o Google AdSense. O Google, como
-            fornecedor terceirizado, utiliza cookies para veicular anúncios com base em visitas anteriores do usuário a
-            este e a outros sites.</p>
-        <p>O uso de cookies de publicidade permite ao Google e a seus parceiros exibir anúncios com base na navegação do
-            usuário. Você pode desativar a publicidade personalizada visitando as
-            <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Configurações de anúncios do
-                Google</a>. Também é possível saber mais sobre como o Google utiliza dados na página
-            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">"Como o
-                Google usa informações de sites ou apps que utilizam nossos serviços"</a>.</p>
+            <h2>3. Publicidade e Google AdSense</h2>
+            <p>Este site pode exibir anúncios fornecidos por terceiros, incluindo o Google AdSense. O Google, como
+                fornecedor terceirizado, utiliza cookies para veicular anúncios com base em visitas anteriores do
+                usuário a este e a outros sites.</p>
+            <p>O uso de cookies de publicidade permite ao Google e a seus parceiros exibir anúncios com base na navegação
+                do usuário. Você pode desativar a publicidade personalizada visitando as
+                <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Configurações de anúncios
+                    do Google</a>. Também é possível saber mais sobre como o Google utiliza dados na página
+                <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">"Como o
+                    Google usa informações de sites ou apps que utilizam nossos serviços"</a>.</p>
 
-        <h2>4. Links para sites de terceiros</h2>
-        <p>Nosso conteúdo pode conter links para sites externos, incluindo locadoras e a plataforma Locaaqui. Não somos
-            responsáveis pelas práticas de privacidade desses sites. Recomendamos a leitura das políticas de cada site
-            visitado.</p>
+            <h2>4. Links para sites de terceiros</h2>
+            <p>Nosso conteúdo pode conter links para sites externos, incluindo locadoras e a plataforma Locaaqui. Não
+                somos responsáveis pelas práticas de privacidade desses sites. Recomendamos a leitura das políticas de
+                cada site visitado.</p>
 
-        <h2>5. Segurança dos dados</h2>
-        <p>Adotamos medidas razoáveis para proteger as informações contra acesso não autorizado. Contudo, nenhum método
-            de transmissão pela internet é totalmente seguro, e não podemos garantir segurança absoluta.</p>
+            <h2>5. Segurança dos dados</h2>
+            <p>Adotamos medidas razoáveis para proteger as informações contra acesso não autorizado. Contudo, nenhum
+                método de transmissão pela internet é totalmente seguro, e não podemos garantir segurança absoluta.</p>
 
-        <h2>6. Seus direitos</h2>
-        <p>De acordo com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018), você tem o direito de solicitar
-            acesso, correção ou exclusão de dados pessoais que porventura tenhamos coletado. Para exercer esses
-            direitos, utilize nossa <a href="contato.html">página de contato</a>.</p>
+            <h2>6. Seus direitos</h2>
+            <p>De acordo com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018), você tem o direito de
+                solicitar acesso, correção ou exclusão de dados pessoais que porventura tenhamos coletado. Para exercer
+                esses direitos, utilize nossa <a href="contato.html">página de contato</a>.</p>
 
-        <h2>7. Alterações nesta política</h2>
-        <p>Esta política pode ser atualizada periodicamente. Recomendamos que você a revise de tempos em tempos. A data
-            da última atualização estará sempre indicada no topo desta página.</p>
+            <h2>7. Alterações nesta política</h2>
+            <p>Esta política pode ser atualizada periodicamente. Recomendamos que você a revise de tempos em tempos. A
+                data da última atualização estará sempre indicada no topo desta página.</p>
 
-        <h2>8. Contato</h2>
-        <p>Em caso de dúvidas sobre esta Política de Privacidade, entre em contato através da nossa
-            <a href="contato.html">página de contato</a>.</p>
+            <h2>8. Contato</h2>
+            <p>Em caso de dúvidas sobre esta Política de Privacidade, entre em contato através da nossa
+                <a href="contato.html">página de contato</a>.</p>
+        </div>
     </main>
 
     <footer>
@@ -199,6 +428,21 @@
             <a href="contato.html">Contato</a>
         </p>
     </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
+
+    <script>
+        const header = document.getElementById('mainHeader');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function () {
+            const s = window.scrollY || document.documentElement.scrollTop;
+            header.classList.toggle('scrolled', s > 40);
+            backToTop.classList.toggle('show', s > 400);
+        }, { passive: true });
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 
 </html>

@@ -5,26 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-1562828751233160">
+    <meta name="theme-color" content="#0f172a">
     <title>Contato | Aluguel de Mesas e Cadeiras Jundiaí</title>
     <meta name="description"
         content="Entre em contato com o portal informativo de aluguel de mesas e cadeiras em Jundiaí. Tire dúvidas ou envie sugestões.">
     <link rel="canonical" href="https://terrenosavendajundiai.com.br/contato.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <style>
         :root {
             --primary: #06b6d4;
             --primary-dark: #0891b2;
+            --primary-light: #22d3ee;
             --secondary: #e6195e;
             --secondary-hover: #be124b;
             --dark: #0f172a;
+            --darker: #080c14;
             --light: #f8fafc;
             --gray-light: #f1f5f9;
             --gray: #64748b;
             --white: #ffffff;
             --font-title: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
         * {
@@ -33,19 +41,59 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--font-body);
             background-color: var(--light);
             color: #334155;
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
+        ::selection {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* HEADER */
         header {
-            background-color: var(--dark);
-            padding: 18px 5%;
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(15, 23, 42, 0.97);
+            padding: 10px 5%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.7rem;
+            animation: floatChair 3s ease-in-out infinite;
+        }
+
+        @keyframes floatChair {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(-6deg); }
         }
 
         .logo-text {
@@ -59,42 +107,106 @@
             color: var(--primary);
         }
 
-        header a {
+        .header-link {
             color: var(--white);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
+            padding: 9px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
         }
 
-        header a:hover {
-            color: var(--primary);
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 60px 5%;
-        }
-
-        h1 {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
+        .header-link:hover {
+            background: var(--white);
             color: var(--dark);
-            font-weight: 800;
-            margin-bottom: 12px;
         }
 
-        .intro {
-            color: var(--gray);
-            font-size: 1.05rem;
-            margin-bottom: 35px;
+        /* HERO COMPACTO */
+        .page-hero {
+            position: relative;
+            background: linear-gradient(135deg, #0f172a 0%, #0e2a3a 45%, #0891b2 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 70px 20px 60px;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.45;
+            z-index: 0;
+            animation: blobFloat 14s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, #06b6d4, transparent 70%);
+            top: -120px;
+            left: -60px;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #e6195e, transparent 70%);
+            bottom: -120px;
+            right: -40px;
+            animation-delay: -6s;
+        }
+
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(35px, -25px) scale(1.1); }
+            66% { transform: translate(-25px, 18px) scale(0.95); }
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-title);
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out 0.1s forwards;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out 0.25s forwards;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 720px;
+            margin: -40px auto 0;
+            padding: 0 5% 70px;
+            position: relative;
+            z-index: 5;
         }
 
         .form-card {
             background-color: var(--white);
-            border-radius: 18px;
-            padding: 35px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            border-radius: 22px;
+            padding: 40px 34px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.7s ease-out 0.4s forwards;
         }
 
         .form-group {
@@ -113,19 +225,21 @@
         input,
         textarea {
             width: 100%;
-            padding: 13px 16px;
-            border-radius: 10px;
+            padding: 14px 16px;
+            border-radius: 12px;
             border: 1px solid #cbd5e1;
             font-family: var(--font-body);
             font-size: 1rem;
             outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--light);
         }
 
         input:focus,
         textarea:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+            background: var(--white);
         }
 
         textarea {
@@ -137,27 +251,120 @@
             background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-hover) 100%);
             color: var(--white);
             border: none;
-            border-radius: 10px;
-            padding: 15px 30px;
+            border-radius: 12px;
+            padding: 16px 30px;
             font-family: var(--font-title);
             font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+        }
+
+        .btn-submit:hover::after {
+            left: 130%;
         }
 
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230, 25, 94, 0.4);
+            box-shadow: 0 8px 25px rgba(230, 25, 94, 0.4);
+        }
+
+        .form-status {
+            display: none;
+            margin-top: 18px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background-color: #dcfce7;
+            color: #166534;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* CARDS DE CONTATO RÁPIDO */
+        .quick-contact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 26px;
+        }
+
+        .qc-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px 18px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .qc-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .qc-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .qc-icon {
+            font-size: 1.8rem;
+            display: inline-flex;
+            width: 56px;
+            height: 56px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(230, 25, 94, 0.1));
+            margin-bottom: 12px;
+        }
+
+        .qc-card h3 {
+            font-family: var(--font-title);
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .qc-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.5;
         }
 
         .info-block {
-            margin-top: 40px;
-            padding: 25px;
-            background-color: var(--gray-light);
-            border-radius: 14px;
+            margin-top: 26px;
+            padding: 28px;
+            background-color: var(--white);
+            border-radius: 18px;
             border-left: 5px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .info-block.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .info-block h2 {
@@ -167,43 +374,120 @@
             margin-bottom: 10px;
         }
 
-        .form-status {
-            display: none;
-            margin-top: 18px;
-            padding: 14px 18px;
-            border-radius: 10px;
-            background-color: #dcfce7;
-            color: #166534;
-            font-weight: 600;
-            font-size: 0.95rem;
+        .info-block p {
+            font-size: 0.98rem;
+            color: #475569;
         }
 
+        /* FOOTER */
         footer {
             background-color: #080c14;
             color: rgba(255, 255, 255, 0.6);
-            padding: 30px 5%;
+            padding: 35px 5%;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
         }
 
         footer a {
             color: var(--white);
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+        }
+
+        .transition-props {
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .qc-card, .info-block, .form-card { opacity: 1; transform: none; }
+        }
+
+        @media (max-width: 720px) {
+            .page-hero h1 { font-size: 2rem; }
+            .quick-contact { grid-template-columns: 1fr; }
+            .form-card { padding: 30px 22px; }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo-text">Loca<span>Aqui</span></div>
-        <a href="index.html">← Voltar ao início</a>
+    <!-- HEADER -->
+    <header id="mainHeader">
+        <div class="logo-container">
+            <span class="logo-icon">🪑</span>
+            <div style="display:flex;flex-direction:column;line-height:1;">
+                <div class="logo-text" style="line-height:1.1;">Loca<span>Aqui</span></div>
+                <div
+                    style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;color:var(--primary);letter-spacing:0.5px;text-transform:uppercase;text-align:left;">
+                    Indica</div>
+            </div>
+        </div>
+        <a href="index.html" class="header-link">← Início</a>
     </header>
 
-    <main class="container">
-        <h1>Fale Conosco</h1>
-        <p class="intro">Tem alguma dúvida sobre aluguel de mesas e cadeiras em Jundiaí, uma sugestão de conteúdo ou quer
-            falar sobre parcerias? Envie sua mensagem pelo formulário abaixo que retornaremos assim que possível.</p>
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="page-hero-content">
+            <h1>Fale Conosco</h1>
+            <p>Dúvidas sobre aluguel de mesas e cadeiras em Jundiaí, sugestões de conteúdo ou parcerias? Estamos por
+                aqui.</p>
+        </div>
+    </section>
 
+    <!-- CONTEÚDO -->
+    <main class="container">
         <div class="form-card">
             <form id="contatoForm">
                 <div class="form-group">
@@ -228,7 +512,26 @@
             </form>
         </div>
 
-        <div class="info-block">
+        <!-- CONTATO RÁPIDO -->
+        <div class="quick-contact">
+            <div class="qc-card transition-props">
+                <span class="qc-icon">💬</span>
+                <h3>Orçamento rápido</h3>
+                <p>Fale direto com as locadoras pelo portal Locaaqui.</p>
+            </div>
+            <div class="qc-card transition-props">
+                <span class="qc-icon">📍</span>
+                <h3>Região</h3>
+                <p>Jundiaí e cidades vizinhas em SP.</p>
+            </div>
+            <div class="qc-card transition-props">
+                <span class="qc-icon">⏱️</span>
+                <h3>Resposta</h3>
+                <p>Retornamos em até 24 horas úteis.</p>
+            </div>
+        </div>
+
+        <div class="info-block transition-props">
             <h2>Sobre este portal</h2>
             <p>Este é um guia informativo independente sobre locação de mobiliário para festas e eventos em Jundiaí e
                 região. Reunimos conteúdo, dicas e referências de preço para ajudar quem está organizando um evento. Não
@@ -243,11 +546,36 @@
         </p>
     </footer>
 
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
+
     <script>
         document.getElementById('contatoForm').addEventListener('submit', function (e) {
             e.preventDefault();
             document.getElementById('formStatus').style.display = 'block';
             this.reset();
+        });
+
+        const header = document.getElementById('mainHeader');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function () {
+            const s = window.scrollY || document.documentElement.scrollTop;
+            header.classList.toggle('scrolled', s > 40);
+            backToTop.classList.toggle('show', s > 400);
+        }, { passive: true });
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.qc-card, .info-block').forEach(function (el) {
+            revealObserver.observe(el);
         });
     </script>
 </body>
