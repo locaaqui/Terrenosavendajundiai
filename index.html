@@ -54,6 +54,44 @@
           "addressCountry": "BR"
         },
         "url": "https://terrenosavendajundiai.com.br/"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quanto custa alugar mesas e cadeiras em Jundiaí?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Em Jundiaí, o aluguel de uma cadeira de plástico costuma variar entre R$ 2 e R$ 5 por unidade, e a mesa plástica dobrável entre R$ 8 e R$ 15 por diária. Valores mudam conforme bairro, quantidade, período e se há frete de entrega e retirada incluído."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A entrega das mesas e cadeiras está inclusa no preço?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Depende da locadora. Muitas empresas de Jundiaí cobram uma taxa de frete separada que varia conforme a distância e o bairro do evento. Sempre confirme se entrega e retirada estão inclusas antes de fechar o pedido."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Com quanta antecedência devo reservar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O ideal é reservar com 7 a 15 dias de antecedência, principalmente em datas de alta demanda como fim de ano, feriados e temporada de casamentos. Isso garante disponibilidade e melhores condições."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "É necessário pagar caução ou depósito?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Algumas locadoras solicitam um sinal ou caução, especialmente em itens mais delicados como taças, toalhas finas e mobiliário premium. O valor costuma ser devolvido após a retirada dos itens sem danos."
+            }
+          }
+        ]
       }
     ]
     </script>
@@ -516,6 +554,186 @@
             }
         }
 
+        /* CONTEÚDO EDITORIAL / ARTIGO */
+        .article {
+            padding: 80px 5%;
+            background-color: var(--white);
+        }
+
+        .article-container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .article h2 {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--dark);
+            font-weight: 800;
+            margin: 40px 0 18px;
+            line-height: 1.25;
+        }
+
+        .article h2:first-child {
+            margin-top: 0;
+        }
+
+        .article h3 {
+            font-family: var(--font-title);
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin: 30px 0 12px;
+        }
+
+        .article p {
+            color: #334155;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+
+        .article ul {
+            margin: 0 0 22px 0;
+            padding-left: 22px;
+            color: #334155;
+        }
+
+        .article li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .article strong {
+            color: var(--dark);
+        }
+
+        /* TABELA DE PREÇOS */
+        .price-table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0 30px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--white);
+            font-size: 0.98rem;
+            min-width: 480px;
+        }
+
+        .price-table thead {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .price-table th {
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-table tbody tr:nth-child(even) {
+            background-color: var(--gray-light);
+        }
+
+        .price-table td:last-child {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-top: -12px;
+            margin-bottom: 30px;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 80px 5%;
+            background-color: var(--gray-light);
+        }
+
+        .faq-container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 14px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(6, 182, 212, 0.2);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 22px 24px;
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .faq-question .icon {
+            color: var(--primary);
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding: 0 24px 22px;
+        }
+
+        .faq-answer p {
+            color: #334155;
+            font-size: 1rem;
+            line-height: 1.75;
+            margin: 0;
+        }
+
         /* RESPONSIVO */
         @media (max-width: 900px) {
             .hero h1 {
@@ -540,6 +758,14 @@
 
             .benefit-card {
                 padding: 30px 20px;
+            }
+
+            .article h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.9rem;
             }
         }
     </style>
@@ -703,6 +929,172 @@
         </div>
     </section>
 
+    <!-- CONTEÚDO EDITORIAL / GUIA COMPLETO -->
+    <section class="article">
+        <div class="article-container">
+            <h2>Guia completo do aluguel de mesas e cadeiras em Jundiaí</h2>
+            <p>Organizar uma festa, um casamento, uma confraternização de empresa ou um simples churrasco de família em
+                Jundiaí quase sempre passa por uma decisão prática: onde conseguir mesas e cadeiras suficientes para
+                acomodar todos os convidados com conforto. Comprar esse mobiliário raramente compensa para quem promove
+                eventos de forma ocasional, e é aí que a locação se torna a opção mais econômica e inteligente.</p>
+            <p>Neste guia reunimos informações úteis sobre como funciona a locação de móveis para festas na região,
+                faixas de preço praticadas no mercado local, o que observar antes de fechar negócio e como evitar
+                imprevistos no dia do seu evento. O conteúdo é voltado para moradores de Jundiaí e cidades próximas como
+                Várzea Paulista, Campo Limpo Paulista, Louveira e Itupeva.</p>
+
+            <h3>Como funciona a locação de móveis para eventos</h3>
+            <p>O processo costuma ser simples. Você define a quantidade de convidados, escolhe os itens (mesas, cadeiras,
+                toalhas, tendas, taças) e solicita um orçamento à locadora. A maioria trabalha com diária, contando o
+                período em que o material fica em sua posse. A entrega e a retirada podem estar inclusas ou cobradas à
+                parte, dependendo da empresa e da distância até o local do evento.</p>
+            <p>Um ponto importante: o dimensionamento correto evita gastos desnecessários. Uma regra prática é considerar
+                <strong>uma cadeira por convidado</strong> e <strong>uma mesa para cada seis a oito pessoas</strong>
+                quando o formato é sentado. Para eventos em pé, com mesas bistrô, o número de mesas cai bastante.</p>
+
+            <h2>Quanto custa alugar mesas e cadeiras em Jundiaí</h2>
+            <p>Os valores variam conforme o tipo de material, a quantidade, o período de locação e o bairro. A tabela
+                abaixo traz uma referência média praticada por locadoras da região para ajudar no seu planejamento. Use
+                esses números apenas como estimativa e sempre solicite um orçamento atualizado.</p>
+
+            <div class="price-table-wrapper">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Descrição</th>
+                            <th>Preço médio (diária)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cadeira plástica</td>
+                            <td>Modelo comum, sem braço, empilhável</td>
+                            <td>R$ 2 a R$ 5</td>
+                        </tr>
+                        <tr>
+                            <td>Mesa plástica dobrável</td>
+                            <td>Quadrada, acomoda 4 pessoas</td>
+                            <td>R$ 8 a R$ 15</td>
+                        </tr>
+                        <tr>
+                            <td>Conjunto (1 mesa + 4 cadeiras)</td>
+                            <td>Kit fechado para festas</td>
+                            <td>R$ 15 a R$ 30</td>
+                        </tr>
+                        <tr>
+                            <td>Mesa bistrô</td>
+                            <td>Alta, para eventos em pé</td>
+                            <td>R$ 12 a R$ 25</td>
+                        </tr>
+                        <tr>
+                            <td>Toalha / cobre-mancha</td>
+                            <td>Tecido, diversas cores</td>
+                            <td>R$ 5 a R$ 12</td>
+                        </tr>
+                        <tr>
+                            <td>Tenda 3x3m</td>
+                            <td>Cobertura para área externa</td>
+                            <td>R$ 80 a R$ 180</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="price-note">Valores de referência de mercado coletados na região de Jundiaí. Não constituem oferta
+                e podem variar conforme a locadora, a data e as condições de entrega.</p>
+
+            <h2>Como escolher a locadora certa</h2>
+            <p>Nem toda locadora oferece o mesmo padrão de serviço. Antes de fechar, vale a pena avaliar alguns pontos
+                que fazem diferença no resultado final do seu evento:</p>
+            <ul>
+                <li><strong>Estado de conservação:</strong> peça fotos recentes do material ou visite o local. Cadeiras
+                    trincadas e toalhas manchadas comprometem a apresentação.</li>
+                <li><strong>Higienização:</strong> confirme se os itens são limpos entre uma locação e outra, algo
+                    essencial para mesas e toalhas que entram em contato com alimentos.</li>
+                <li><strong>Logística de entrega:</strong> verifique horários de entrega e retirada, se há custo de
+                    frete e se a montagem está inclusa em itens como tendas e tablados.</li>
+                <li><strong>Política de danos:</strong> entenda como a empresa lida com eventuais quebras e se há caução.
+                </li>
+                <li><strong>Reputação:</strong> procure avaliações de outros clientes e peça indicação a quem já
+                    realizou eventos na região.</li>
+            </ul>
+
+            <h3>Dicas para economizar sem abrir mão da qualidade</h3>
+            <ul>
+                <li>Compare pelo menos três orçamentos antes de decidir.</li>
+                <li>Reserve com antecedência para evitar taxas de urgência.</li>
+                <li>Agrupe itens na mesma locadora para reduzir o custo de frete.</li>
+                <li>Prefira retirar e devolver o material por conta própria quando possível e viável.</li>
+                <li>Evite datas de altíssima procura, quando os preços tendem a subir.</li>
+            </ul>
+
+            <h2>Locação em diferentes bairros de Jundiaí</h2>
+            <p>Jundiaí é uma cidade extensa, e a região do seu evento influencia tanto a disponibilidade quanto o custo
+                do frete. Bairros como <strong>Eloy Chaves</strong>, <strong>Medeiros</strong> e
+                <strong>Malota</strong> concentram muitos condomínios residenciais e chácaras, com grande procura por
+                mobiliário de festa nos fins de semana. Já regiões centrais como o <strong>Anhangabaú</strong> costumam
+                atender demandas corporativas e comerciais durante a semana. Ao solicitar seu orçamento, informe o
+                bairro exato para receber um valor de entrega mais preciso.</p>
+        </div>
+    </section>
+
+    <!-- PERGUNTAS FREQUENTES -->
+    <section class="faq">
+        <div class="section-header">
+            <h2>Perguntas Frequentes</h2>
+            <p>Tire suas principais dúvidas sobre o aluguel de mesas e cadeiras em Jundiaí.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    Quanto custa alugar mesas e cadeiras em Jundiaí?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Em Jundiaí, o aluguel de uma cadeira de plástico costuma variar entre R$ 2 e R$ 5 por unidade, e a
+                        mesa plástica dobrável entre R$ 8 e R$ 15 por diária. Os valores mudam conforme o bairro, a
+                        quantidade de itens, o período de locação e se há frete de entrega e retirada incluído.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    A entrega das mesas e cadeiras está inclusa no preço?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Depende da locadora. Muitas empresas de Jundiaí cobram uma taxa de frete separada, que varia
+                        conforme a distância e o bairro do evento. Sempre confirme se entrega e retirada estão inclusas
+                        antes de fechar o pedido.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    Com quanta antecedência devo reservar?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>O ideal é reservar com 7 a 15 dias de antecedência, principalmente em datas de alta demanda como
+                        fim de ano, feriados e temporada de casamentos. Isso garante disponibilidade e melhores
+                        condições de preço.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    É necessário pagar caução ou depósito?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Algumas locadoras solicitam um sinal ou caução, especialmente em itens mais delicados como taças,
+                        toalhas finas e mobiliário premium. O valor costuma ser devolvido após a retirada dos itens sem
+                        danos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA GERAL -->
     <section class="cta-section">
         <div class="cta-container">
@@ -726,10 +1118,16 @@
                 style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 600; color: var(--primary); letter-spacing: 0.5px; margin-top: 1px; text-transform: uppercase;">
                 Indica</div>
         </div>
-        <p>Tecnologia e captação fornecida pela plataforma <a href="https://locaaqui.com.br" target="_blank">Locaaqui
-                Indica</a></p>
-        <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 15px;">&copy; 2026 Locaaqui. Todos os direitos
-            reservados. Landing page satélite de teste para indexação local.</p>
+        <p>Guia informativo sobre aluguel de mesas, cadeiras e materiais para festas e eventos em Jundiaí e região.</p>
+        <p style="margin-top: 12px;">
+            <a href="privacidade.html">Política de Privacidade</a>
+            &nbsp;&middot;&nbsp;
+            <a href="contato.html">Contato</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://locaaqui.com.br" target="_blank" rel="noopener">Locaaqui</a>
+        </p>
+        <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 15px;">&copy; 2026 Aluguel de Mesas e Cadeiras Jundiaí.
+            Conteúdo informativo. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Script de Redirecionamento da Busca -->
@@ -771,6 +1169,22 @@
 
             window.open(targetUrl, '_blank');
         }
+
+        // Acordeão das Perguntas Frequentes
+        document.querySelectorAll('.faq-question').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(function (el) {
+                    el.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 
